@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#a4000f">
+  <meta name="theme-color" content="#9d0011">
   <meta name="description" content="Cartão virtual da Duque Store">
   <title>Duque Store</title>
 
@@ -16,7 +16,7 @@
     html, body {
       margin: 0;
       min-height: 100%;
-      background: #100002;
+      background: #120003;
       font-family: Arial, Helvetica, sans-serif;
     }
 
@@ -26,7 +26,7 @@
       align-items: flex-start;
     }
 
-    .cartao {
+    .card {
       position: relative;
       width: min(100vw, 768px);
       overflow: hidden;
@@ -34,109 +34,86 @@
       box-shadow: 0 0 45px rgba(0,0,0,.55);
     }
 
-    .cartao img {
+    .card img {
+      display: block;
       width: 100%;
       height: auto;
-      display: block;
       user-select: none;
       -webkit-user-drag: none;
     }
 
-    .botao {
+    .hotspot {
       position: absolute;
-      left: 12.8%;
-      width: 74.4%;
+      left: 12.3%;
+      width: 75.4%;
       border-radius: 24px;
-      cursor: pointer;
       text-decoration: none;
+      cursor: pointer;
       outline: none;
     }
 
-    .botao:focus-visible {
-      box-shadow: 0 0 0 4px rgba(255,255,255,.95);
+    .hotspot:hover {
+      background: rgba(255,255,255,.05);
     }
 
-    .botao:active {
-      background: rgba(255,255,255,.10);
+    .hotspot:active {
+      background: rgba(255,255,255,.12);
     }
 
-    /* Áreas clicáveis alinhadas aos quatro cartões */
-    .instagram { top: 59.1%; height: 9.1%; }
-    .whatsapp  { top: 68.6%; height: 9.1%; }
-    .local     { top: 78.0%; height: 9.1%; }
-    .pix       { top: 87.4%; height: 8.6%; }
-
-    .aviso {
-      position: fixed;
-      left: 50%;
-      bottom: 18px;
-      transform: translateX(-50%) translateY(20px);
-      background: rgba(0,0,0,.88);
-      color: white;
-      padding: 11px 16px;
-      border-radius: 999px;
-      font-size: 14px;
-      opacity: 0;
-      pointer-events: none;
-      transition: .2s ease;
-      z-index: 10;
-      white-space: nowrap;
+    .hotspot:focus-visible {
+      box-shadow: inset 0 0 0 4px rgba(255,255,255,.95);
     }
 
-    .aviso.mostrar {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
+    /* Áreas clicáveis alinhadas com os quatro botões da arte */
+    .instagram { top: 57.55%; height: 8.55%; }
+    .whatsapp  { top: 66.65%; height: 8.55%; }
+    .location  { top: 75.75%; height: 8.65%; }
+    .pix       { top: 84.95%; height: 8.60%; }
 
     @media (min-width: 769px) {
       body {
         padding: 24px 0;
       }
 
-      .cartao {
+      .card {
         border-radius: 24px;
       }
     }
   </style>
 </head>
-
 <body>
-  <main class="cartao" aria-label="Cartão virtual Duque Store">
+  <main class="card" aria-label="Cartão virtual da Duque Store">
     <img src="cartao-duque-store.png" alt="Cartão virtual da Duque Store">
 
-    <a class="botao instagram"
-       href="https://www.instagram.com/duquestoresl/"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Abrir Instagram da Duque Store"></a>
+    <a
+      class="hotspot instagram"
+      href="https://www.instagram.com/duque_storesl/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Abrir Instagram da Duque Store">
+    </a>
 
-    <a class="botao whatsapp"
-       href="https://wa.me/5551980650815"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Abrir WhatsApp da Duque Store"></a>
+    <a
+      class="hotspot whatsapp"
+      href="https://wa.me/5551980650815"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Abrir WhatsApp da Duque Store">
+    </a>
 
-    <a class="botao local"
-       href="https://www.google.com/maps/search/?api=1&query=Duque+Store%2C+Rua+Fernando+Ribeiro+de+Castro%2C+71%2C+Duque+de+Caxias%2C+S%C3%A3o+Leopoldo%2C+RS%2C+93037-300"
-       target="_blank"
-       rel="noopener noreferrer"
-       aria-label="Abrir localização da Duque Store"></a>
+    <a
+      class="hotspot location"
+      href="https://www.google.com/maps/search/?api=1&query=Duque+Store%2C+Rua+Fernando+Ribeiro+de+Castro%2C+71%2C+Duque+de+Caxias%2C+S%C3%A3o+Leopoldo%2C+RS%2C+93037-300"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Abrir localização da Duque Store">
+    </a>
 
-    <a class="botao pix"
-       href="pix_duque_store.html"
-       aria-label="Abrir página de pagamento PIX"></a>
+    <a
+      class="hotspot pix"
+      href="pix_duque_store.html"
+      aria-label="Abrir página PIX da Duque Store">
+    </a>
   </main>
-
-  <div id="aviso" class="aviso">Abrindo…</div>
-
-  <script>
-    const aviso = document.getElementById("aviso");
-    document.querySelectorAll(".botao").forEach(botao => {
-      botao.addEventListener("click", () => {
-        aviso.classList.add("mostrar");
-        setTimeout(() => aviso.classList.remove("mostrar"), 1200);
-      });
-    });
-  </script>
 </body>
 </html>
