@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#a4000f">
+  <meta name="description" content="Cartão virtual da Duque Store">
+  <title>Duque Store</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: #100002;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .cartao {
+      position: relative;
+      width: min(100vw, 768px);
+      overflow: hidden;
+      background: #180003;
+      box-shadow: 0 0 45px rgba(0,0,0,.55);
+    }
+
+    .cartao img {
+      width: 100%;
+      height: auto;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .botao {
+      position: absolute;
+      left: 12.8%;
+      width: 74.4%;
+      border-radius: 24px;
+      cursor: pointer;
+      text-decoration: none;
+      outline: none;
+    }
+
+    .botao:focus-visible {
+      box-shadow: 0 0 0 4px rgba(255,255,255,.95);
+    }
+
+    .botao:active {
+      background: rgba(255,255,255,.10);
+    }
+
+    /* Áreas clicáveis alinhadas aos quatro cartões */
+    .instagram { top: 59.1%; height: 9.1%; }
+    .whatsapp  { top: 68.6%; height: 9.1%; }
+    .local     { top: 78.0%; height: 9.1%; }
+    .pix       { top: 87.4%; height: 8.6%; }
+
+    .aviso {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%) translateY(20px);
+      background: rgba(0,0,0,.88);
+      color: white;
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      opacity: 0;
+      pointer-events: none;
+      transition: .2s ease;
+      z-index: 10;
+      white-space: nowrap;
+    }
+
+    .aviso.mostrar {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @media (min-width: 769px) {
+      body {
+        padding: 24px 0;
+      }
+
+      .cartao {
+        border-radius: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="cartao" aria-label="Cartão virtual Duque Store">
+    <img src="cartao-duque-store.png" alt="Cartão virtual da Duque Store">
+
+    <a class="botao instagram"
+       href="https://www.instagram.com/duquestoresl/"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Abrir Instagram da Duque Store"></a>
+
+    <a class="botao whatsapp"
+       href="https://wa.me/5551980650815"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Abrir WhatsApp da Duque Store"></a>
+
+    <a class="botao local"
+       href="https://www.google.com/maps/search/?api=1&query=Duque+Store%2C+Rua+Fernando+Ribeiro+de+Castro%2C+71%2C+Duque+de+Caxias%2C+S%C3%A3o+Leopoldo%2C+RS%2C+93037-300"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Abrir localização da Duque Store"></a>
+
+    <a class="botao pix"
+       href="pix_duque_store.html"
+       aria-label="Abrir página de pagamento PIX"></a>
+  </main>
+
+  <div id="aviso" class="aviso">Abrindo…</div>
+
+  <script>
+    const aviso = document.getElementById("aviso");
+    document.querySelectorAll(".botao").forEach(botao => {
+      botao.addEventListener("click", () => {
+        aviso.classList.add("mostrar");
+        setTimeout(() => aviso.classList.remove("mostrar"), 1200);
+      });
+    });
+  </script>
+</body>
+</html>

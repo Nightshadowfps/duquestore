@@ -1,0 +1,23 @@
+DUQUE STORE — CARTÃO VIRTUAL
+
+Arquivos:
+- index.html: página principal do cartão
+- cartao-duque-store.png: imagem do cartão
+- pix_duque_store.html: página com QR Code e PIX Copia e Cola
+
+COMO PUBLICAR NO GITHUB
+1. Abra o repositório duquestore.
+2. Apague ou substitua os arquivos antigos, se necessário.
+3. Envie os três arquivos para a raiz do repositório.
+4. Em Settings > Pages, mantenha:
+   Source: Deploy from a branch
+   Branch: main
+   Pasta: / (root)
+5. O endereço será:
+   https://nightshadowfps.github.io/duquestore/
+
+Links configurados:
+Instagram: https://www.instagram.com/duquestoresl/
+WhatsApp: https://wa.me/5551980650815
+Localização: Google Maps da Duque Store
+PIX: pix_duque_store.html
